@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Extractor - Upload</title>
+    <link rel="stylesheet" href="style1.css" />
+  </head>
+  <body>
+
+    <div>
+      <div id="two"><br><br>
+        <h1 id="main">Upload Your</h1>
+        <h1 id="heading">Image or File Here</h1>
+        <p>You can upload PDF or images here to get your data structured.</p>
+
+        <div id="upload-box">
+          <label for="file-input" id="upload-label">
+            <span id="upload-icon">&#8682;</span>
+            <span id="upload-text">Choose a file or drag it here</span>
+          </label>
+          <input type="file" id="file-input" accept=".pdf,image/*" hidden />
+          <p id="file-name">No file selected</p>
+        </div>
+
+        <button type="button" id="extract-btn" onclick="window.location.href='page3.html'">
+          Click here to extract your data
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const fileInput = document.getElementById('file-input');
+      const fileName = document.getElementById('file-name');
+
+      fileInput.addEventListener('change', () => {
+        if (fileInput.files.length > 0) {
+          fileName.textContent = fileInput.files[0].name;
+        } else {
+          fileName.textContent = 'No file selected';
+        }
+      });
+    </script>
+
+  </body>
+</html>
